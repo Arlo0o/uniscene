@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="UniScene: Unified Occupancy-centric Driving Scene Generation">
+  <meta name="keywords" content="VLN">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UniScene: Unified Occupancy-centric Driving Scene Generation</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./prj_static/css/bulma.min.css">
+  <link rel="stylesheet" href="./prj_static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./prj_static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./prj_static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./prj_static/css/index.css">
+  <!-- <link rel="icon" href="./prj_static/images/favicon.svg"> -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./prj_static/js/fontawesome.all.min.js"></script>
+  <script src="./prj_static/js/bulma-carousel.min.js"></script>
+  <script src="./prj_static/js/bulma-slider.min.js"></script>
+  <script src="./prj_static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://arlo0o.github.io/libohan.github.io/">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          Projects
+
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://arlo0o.github.io/UniScene.github.io/">
+            UniScene
+          </a>
+
+
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://arlo0o.github.io/hisop.github.io/">
+            Hi-SOP
+          </a>
+
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://github.com/Arlo0o/HTCL">
+            HTCL
+          </a>
+
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://github.com/Arlo0o/StereoScene">
+            BRGScene
+          </a>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-3 publication-title">UniScene: Unified Occupancy-centric Driving Scene Generation</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?hl=zh-CN&user=V-YdQiAAAAAJ">Bohan Li<sup>1,2</sup></a>,      
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?hl=zh-CN&user=pWLqZnoAAAAJ"> Jiazhe Guo<sup>3</sup></a>,      
+            </span>
+            <span class="author-block">
+              <a href="https://ericliuhhh.github.io/"> Hongsi Liu<sup>2</sup></a>,      
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?hl=zh-CN&user=3SIkncUAAAAJ">Yingshuang Zou<sup>3</sup></a>,      
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?hl=zh-CN&user=gdP9StQAAAAJ">Yikang Ding<sup>4</sup></a>,      
+            </span>
+            <span class="author-block">
+              <a href="https://zhuhu00.top">Hu Zhu<sup>2</sup></a>,      
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?hl=zh-CN&user=KeiZBdMAAAAJ">Feiyang Tan<sup>4</sup></a>,      
+            </span>
+            <span class="author-block">
+              <a href="https://www.megvii.com/">Chi Zhang<sup>4</sup></a>,      
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?hl=zh-CN&user=YI0sRroAAAAJ">Tiancai Wang<sup>5</sup></a>,      
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?hl=zh-CN&user=zYI0rysAAAAJ">Shuchang Zhou<sup>5</sup></a>,      
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?hl=zh-CN&user=-wOTCE8AAAAJ">Li Zhang<sup>6</sup></a>,      
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?hl=zh-CN&user=bGn0uacAAAAJ">XiaoJuan Qi<sup>7</sup></a>,      
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?hl=zh-CN&user=ygQznUQAAAAJ">Hao Zhao<sup>3</sup></a>,      
+            </span>
+            <span class="author-block">
+              <a href="https://www.megvii.com/">Mu Yang<sup>5</sup></a>,      
+            </span>
+
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?hl=zh-CN&user=_cUfvYQAAAAJ">Wenjun Zeng<sup>2</sup></a>,     
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?hl=zh-CN&user=byaSC-kAAAAJ">Xin Jin<sup>2</sup></a>     
+            </span>
+
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">1.Shanghai Jiao Tong University, 2.Eastern Institute of Technology, 3.Tsinghua University </span>
+            <span class="author-block">4.Mach Drive, 5.MEGVII Technology, 6.Fudan University, 7.University of Hong Kong </span>
+          </div>
+
+          <!-- <div class="is-size-5 publication-authors">
+            <span class="author-block">PAMI </span>
+          </div> -->
+
+          <!-- <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/230519195."
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span> -->
+              <!-- Video Link. -->
+              <!-- <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+              <!-- Code Link. -->
+              <!-- <span class="link-block">
+                <a href="https://github.com/jialuli-luka/PanoGen"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span> -->
+              <!-- Dataset Link. -->
+              <!-- <span class="link-block">
+                <a href="https://github.com/google/nerfies/releases/tag/0.1"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a> -->
+            </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+
+      <center>
+        <video id="teaser" autoplay controls muted loop width="100%">
+          <source src="./uniscene/Demo_UniScene.mp4" type="video/mp4">
+        </video>
+        </center>
+
+    </div>
+  </div>
+</section>
+
+<hr>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Generating high-fidelity, controllable, and annotated training data is critical for autonomous driving. Existing methods typically generate a single data form directly from a coarse scene layout, which not only fails to output rich data forms required for diverse downstream tasks but also struggles to model the direct layout-to-data distribution. In this paper, we introduce <b>UniScene, the first unified framework for generating three key data forms — semantic occupancy, video, and LiDAR — in driving scenes.</b> UniScene employs a progressive generation process that decomposes the complex task of scene generation into two hierarchical steps: (a) first generating semantic occupancy from a customized scene layout as a meta scene representation rich in both semantic and geometric information, and then (b) conditioned on occupancy, generating video and LiDAR data, respectively, with two novel transfer strategies of Gaussian-based Joint Rendering and Prior-guided Sparse Modeling. <b>This occupancy-centric approach reduces the generation burden, especially for intricate scenes, while providing detailed intermediate representations for the subsequent generation stages.</b> Extensive experiments demonstrate that UniScene outperforms previous SOTAs in the occupancy, video, and LiDAR generation, which also indeed benefits downstream driving tasks. 
+          </p>
+        </div>
+      </div>
+    </div>
+</section>
+<hr>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+    <h2 class="title is-3">Teaser</h2>
+
+      <center><img src="uniscene\teaser_fig1.png" alt="Teaser" width="100%"></center>
+
+      <div class="content has-text-justified">
+      <p> <b>(a) Overview of UniScene.</b> Given BEV layouts, UniScene facilitates versatile data generation, including semantic occupancy, multi-view video, and LiDAR point clouds, through an occupancy-centric hierarchical modeling approach. <b>(b) Performance comparison on different generation tasks.</b> UniScene delivers substantial improvements over SOTA methods in video, LiDAR, and occupancy generation.</p>
+      </div>
+
+      <center><img src="uniscene\teaser_fig1_b.png" alt="Teaser" width="100%" height="100%" ></center>
+
+      <div class="content has-text-justified">
+      <p> <b>Versatile generation ability of UniScene.</b> (a) Large-scale coherent generation of semantic occupancy, LiDAR point clouds, and multi-view videos. (b) Controllable generation of geometry-edited occupancy, video, and LiDAR by simply editing the input BEV layouts to convey user commands. (c) Controllable generation of attribute-diverse videos by changing the input text prompts.</p>
+      </div>
+
+
+    </div>
+  </div>
+  </div>
+</section>
+<hr>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+    <h2 class="title is-3">Overview</h2>
+
+      <center><img src="uniscene\overall.png" alt="Teaser" width="100%"></center>
+
+      <div class="content has-text-justified">
+      <p><b>Overall framework of the proposed method.</b> The joint generation process is organized into an occupancy-centric hierarchy: I. Controllable Occupancy Generation. The BEV layouts are concatenated with the noise volumes before being fed into the Occupancy Diffusion Transformer, and decoded with the Occupancy VAE Decoder. II. Occupancy-based Video and LiDAR Generation. The occupancy is converted into 3D Gaussians and rendered into semantic and depth maps, which are processed with additional encoders as in ControlNet. The output is obtained from the Video VAE Decoder. For LiDAR generation, the occupancy is processed via a sparse UNet and sampled with the geometric prior guidance, which is sent to the LiDAR head for generation.</p>
+      </div>
+
+    </div>
+  </div>
+  </div>
+</section>
+
+
+<hr>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+    <h2 class="title is-3">Experimental Results</h2>
+  </center>
+</div>
+</div>
+
+
+  <div class="columns is-centered has-text-centered">
+    <div class="column is-four-fifths">
+      <h2 class="title is-5">Qualitative Results</h2>
+
+    <!-- </center>
+    <div class="content has-text-justified">
+    </div> -->
+    <center>
+      <video id="teaser" autoplay controls muted loop width="100%">
+        <source src="./uniscene\Comparison_UniScene.mp4" type="video/mp4">
+      </video>
+      </center>
+
+  </div>
+  </div>
+
+   
+  <div class="columns is-centered has-text-centered">
+    <div class="column is-four-fifths">
+      <h2 class="title is-5">Quantitative Results</h2>
+
+    <center><img src="uniscene\table1.png" alt="Teaser" width="70%"></center>
+
+    <div class="content has-text-justified">
+    <b>Quantitative evaluation for occupancy reconstruction</b> on the NuScenes-Occupancy validation set. The compression ratio is calculated following the methodology outlined in OccWorld.
+    </div>
+
+    <center><img src="uniscene\table2.png" alt="Teaser" width="70%"></center>
+
+    <div class="content has-text-justified">
+    <b>Quantitative evaluation for occupancy generation</b> (`Ours-Gen.') and forecasting (`Ours-Fore.') on the NuScenes-Occupancy validation set. `Ours-Gen.' and `Ours-Fore.' denote our Generation model and Forecasting model, respectively. `CFG' refers to the Classifier-Free Guidance.
+    </div>
+
+    <center><img src="uniscene\table3.png" alt="Teaser" width="70%"></center>
+
+    <div class="content has-text-justified">
+    <b>Quantitative evaluation for video generation</b> on the NuScenes validation set. We implement the multi-view variant of Vista* with spatial-temporal attention..
+    </div>
+
+    <center><img src="uniscene\table4.png" alt="Teaser" width="70%"></center>
+
+    <div class="content has-text-justified">
+    <b>Quantitative evaluation for LiDAR generation</b> on the NuScenes validation set. We include the semantic occupancy generation time for a fair comparison.
+    </div>
+
+    <center><img src="uniscene\table5.png" alt="Teaser" width="70%"></center>
+
+    <div class="content has-text-justified">
+    <b>Quantitative evaluation about support for semantic occupancy prediction model</b> (Baseline as CONet) on the NuScenes-Occupancy validation set. The `C', `L', and `L^D' denote the camera, LiDAR, and depth projected from LiDAR.
+    </div>
+
+  </div>
+  </div>
+
+
+
+
+
+  </div>
+  </div>
+
+
+
+
+  </div>
+  </div>
+</section>
+<hr>
+
+ 
+
+
+ 
+
+</body>
+</html>
